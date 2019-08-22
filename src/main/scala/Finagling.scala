@@ -1,12 +1,7 @@
-import java.net.SocketAddress
-
-import com.taubler.greet.thrift.{FullName, GreetingService}
 import com.twitter.app.App
-import com.twitter.finagle.ssl.Protocols
-import com.twitter.finagle.{Client, Http, ListeningServer, Service, http}
-import com.twitter.scrooge.ThriftExceptionResponse
-import com.twitter.util.{Await, Awaitable, Duration, Future, Time}
+import com.twitter.finagle.Http
 import com.twitter.finagle.Thrift.Server
+import com.twitter.util.Await
 
 object Finagling extends App {
 
@@ -19,7 +14,7 @@ object Finagling extends App {
   }
 
   def runScroogyServer(): Unit = {
-    val serviceImpl = new GreetServerImpl()
+    val serviceImpl = new GreetServerMepImpl()
     val server = new Server()
     val listeningServer = server.serveIface(s":${port.get.getOrElse(default)}", serviceImpl)
     Await.ready(listeningServer)
