@@ -8,4 +8,5 @@ struct FullName {
 
 service GreetingService {
   string beGreeted(1: FullName name)
+  string beUngreeted(1: FullName name, 2: string newLocation)
 }
