@@ -1,6 +1,7 @@
-import com.twitter.finagle.http.{Request, Response}
+package com.taubler.greet.service
+
+import com.twitter.finagle.http.{Method, Request, Response}
 import com.twitter.finagle.{Service, http}
-import com.twitter.finagle.http.Method
 import com.twitter.util.Future
 
 class GreetService extends Service[http.Request, http.Response] {
